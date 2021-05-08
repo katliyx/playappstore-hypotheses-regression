@@ -1,4 +1,4 @@
-Group Project
+Google Play App Store Analysis
 ================
 Katherine Li
 
@@ -130,9 +130,9 @@ independent variables which would affect the prediction of rating.
 
 For variables with two groups, we could use t-test to tell the mean
 difference between groups. As we want to test if there is a difference
-in rating between paid and free applications, we run a t test on
-âtypeâ, which would tell the mean difference of rating for paid
-and free applications.
+in rating between paid and free applications, we run a t test on ‘type’,
+which would tell the mean difference of rating for paid and free
+applications.
 
  
 
@@ -191,24 +191,23 @@ not normally distributed based on the histogram.
 ## ANOVA 1 Rating \~ Installs
 
 We want to see if there is a difference in ratings among different
-levels of installations. The installations are listed as â0â,
-â0+â, â1+â, â5+â, â10+â, â50+â, and continued
-in identical format till â1,000,000,000+â. There is also one input
-marked âfreeâ. We first run a summary on the variable âinstallsâ
-from the original dataset to see the detailed distribution of data
-across different levels of installations. To prepare the data for
-efficiency purposes, we aim to group all the installation levels into
-six groups with nearly equal proportion of data included. We group
-â0â, â0+â, â1+â, â5+â, â10+â, â50+â,
-â100+â, and â500+â as the first group which contains 979 data
-points, and assign âXXSâ to data points associated. Group 2 includes
-â1,000+â and â5,000+â - 1078 data points in total, which are
-marked as âXSâ. Group 3 takes in â10,000+â and â50,000+â -
-1187 data points, which are marked as âSâ. With this method applied
-further, we have group 4 labeled as âMâ with 1198 data points, group
-5 labeled as âLâ with 971 data points, and group 6 labeled as
-âXLâ with 1108 data points. As for the single âfreeâ one,
-we drop the record since it would barely affect the final result.
+levels of installations. The installations are listed as “0”, “0+”,
+“1+”, “5+”, “10+”, “50+”, and continued in identical format till
+“1,000,000,000+”. There is also one input marked “free”. We first run
+a summary on the variable “installs” from the original dataset to see
+the detailed distribution of data across different levels of
+installations. To prepare the data for efficiency purposes, we aim to
+group all the installation levels into six groups with nearly equal
+proportion of data included. We group “0”, “0+”, “1+”, “5+”, “10+”,
+“50+”, “100+”, and “500+” as the first group which contains 979 data
+points, and assign “XXS” to data points associated. Group 2 includes
+“1,000+” and “5,000+” - 1078 data points in total, which are marked as
+“XS”. Group 3 takes in “10,000+” and “50,000+” - 1187 data points, which
+are marked as “S”. With this method applied further, we have group 4
+labeled as “M” with 1198 data points, group 5 labeled as “L” with 971
+data points, and group 6 labeled as “XL” with 1108 data points. As for
+the single “free” one, we drop the record since it would barely affect
+the final result.
 
 After this data cleaning process, we run an ANOVA test to verify our
 hypothesis:
@@ -282,7 +281,7 @@ pair between two groups of installation levels. We could reject the null
 hypothesis.
 
 To find out exactly which comparison pairs showcase this significance
-difference. We then run a Tukeyâs HSD test. We could see that the
+difference. We then run a Tukey’s HSD test. We could see that the
 p-values for 13 out of 15 comparison pairs have small p-values. The
 p-values for pairs XXS-XL, and XS-S are large. Plus, the p-value for
 pair L-XL is quite close to the 0.05 cut-off. If we set our cut-off
@@ -312,9 +311,8 @@ to our approach of grouping different levels of installs into smaller
 groups. Though we have tried to have smaller groups that contain
 proportions of data that are as equivalent as possible, the amounts of
 data points included in each group still vary within a considerably
-large range. For instance, group âLâ has 971 data points while group
-âMâ has 1198 data points. This might affect our result to a certain
-extent.
+large range. For instance, group “L” has 971 data points while group “M”
+has 1198 data points. This might affect our result to a certain extent.
 
 Moreover, the residuals does not appear to be normally distributed -
 this opposes certain assumptions that ANOVA test is based on.
@@ -460,9 +458,9 @@ by 0.0008 and by 0.0005 respectively. The coefficient of reviews is
 1.3\*10^-8 and for each unit increase the rating will increase by that
 number. For installs size in category XXS, 0.1 tell us the change in the
 mean rating for someone who is in XXS relative to category XL. The
-category XSâs coefficient of -0.19 tell us the expected change for
-mean rating for someone who is in XS relative to category XL. The
-category S,M and Lâs coefficient act the same.
+category XS’s coefficient of -0.19 tell us the expected change for mean
+rating for someone who is in XS relative to category XL. The category
+S,M and L’s coefficient act the same.
 
 The p value of price and reviews is less than 0.05 so we can reject H0
 in Hypothesis 1 and Hypothesis 5. The p value of the size is larger than
@@ -473,11 +471,11 @@ So we can reject the H0 of the Hypothesis 2 and hypothesis 4.
 
 The F-statistic for the whole model is 34 and that means difference in
 variance is significant because the corresponding p-value is less than
-0.05. The âResiduals vs Fittedâ plot and the âScale-Locationâ
-plot are showing us our linear relationships within residuals and it
-looks a bit weird because we have categorical variables in our model but
-the overall fitness is fine.Finally, âResiduals vs Leverageâ shows
-us observations exhibiting a high degree of leverage on our regression.
+0.05. The “Residuals vs Fitted” plot and the “Scale-Location” plot are
+showing us our linear relationships within residuals and it looks a bit
+weird because we have categorical variables in our model but the overall
+fitness is fine.Finally, “Residuals vs Leverage” shows us observations
+exhibiting a high degree of leverage on our regression.
 
  
 
@@ -498,15 +496,15 @@ hist(xyMod2$residuals)
 Limitation:
 
 The regression model needs to be further improved for better fit because
-it has the ability to predict but we canât say that this is the best
-predictive model. The âNormal Q-Qâ plot is saying that our errors
-are not normally-distributed so I draw a histogram to see the
-distribution directly.
+it has the ability to predict but we can’t say that this is the best
+predictive model. The “Normal Q-Q” plot is saying that our errors are
+not normally-distributed so I draw a histogram to see the distribution
+directly.
 
 The adjusted R-square is really close to 0 but the r-square is based on
-a context and can be improved so we canât say for sure that the model
-is useless. The independent variables such as price have some outliers
-that may impact the fitness of regression greatly.
+a context and can be improved so we can’t say for sure that the model is
+useless. The independent variables such as price have some outliers that
+may impact the fitness of regression greatly.
 
  
 
@@ -519,10 +517,10 @@ ratings across groups of apps that are associated with different content
 ratings. In the original dataset there are one record with content
 rating left blank - this got cleaned out during our previous data
 preparation. Running summary on the sorted dataset, we detect there is
-only one record with content rating marked âunratedâ - we decide to
+only one record with content rating marked “unrated” - we decide to
 filter out this record for our following ANOVA test. Now we have content
-ratings categorized into five groups, which are âAdults only 18+â,
-âEveryoneâ, âEveryone 10+â, âMature 17+â and âTeenâ.
+ratings categorized into five groups, which are “Adults only 18+”,
+“Everyone”, “Everyone 10+”, “Mature 17+” and “Teen”.
 
 We run an ANOVA test for our hypothesis:
 
